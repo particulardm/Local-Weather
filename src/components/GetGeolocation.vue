@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
   import type { Ref } from 'vue';
+  import GetWeather from './GetWeather.vue';
 
   type Geolocation = {
     latitude: number;
@@ -31,6 +32,7 @@
   <div>
     <div v-if="!geolocationAccessDeniedByUser">{{ coords?.latitude }} {{ coords?.longitude }} </div>
     <div v-else>Access denied by the user</div>
+    <GetWeather :coords="{latitude: coords?.latitude, longitude: coords?.longitude}" />
   </div>
 </template>
 
